@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from rest_framework.renderers import JSONRenderer
+from random import randint
 
 class JSONResponse(HttpResponse):
     """
@@ -9,3 +10,6 @@ class JSONResponse(HttpResponse):
         content = JSONRenderer().render(data)
         kwargs['content_type'] = 'application/json'
         super(JSONResponse, self).__init__(content, **kwargs)
+
+def GenerateRandomInRange(start, end):
+	return randint(start,end)
