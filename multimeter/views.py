@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from .models import UniversalJsonContainer
-from .controllers import JSONResponse
+from .controllers import JSONResponse, GenerateRandomInRange
 from .serializers import UniversalJsonContainerSerializer
 
 
@@ -15,12 +15,13 @@ def index(request):
 
 def db(request):
 
-    data = UniversalJsonContainer.objects.create(session_id=0, content_type="data", data={"content":"data"})
+    data = UniversalJsonContainer.objects.create(session_id=0, content_type="data", 
+    	data={"x":GenerateRandomInRange(0,9), "y":GenerateRandomInRange(0,9)})
     data.save()
 
     all_data = UniversalJsonContainer.objects.all()
 
-    return render(request, 'db.html', {'all_data': all_data})
+    return render(request, 'multimeter.html', {'all_data': all_data})
 
 @csrf_exempt
 def universal_json_container_list(request):
