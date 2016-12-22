@@ -9,11 +9,11 @@ from .serializers import UniversalJsonContainerSerializer
 
 
 # Create your views here.
-def index(request):
+def db(request):
     # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
-def db(request):
+def index(request):
 
     data = UniversalJsonContainer.objects.create(session_id=0, content_type="data", 
     	data={"x":GenerateRandomInRange(0,9), "y":GenerateRandomInRange(0,9)})

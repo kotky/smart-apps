@@ -6,29 +6,6 @@
 <script src="{% static 'js/main.js' %}"></script>
 <script type="text/javascript">
 
-    window.onload = function () {
-        var chart = new CanvasJS.Chart("chartContainer",
-        {
-          zoomEnabled: true,
-          title:{
-            text: "Stress Test: 100,000 Data Points" 
-          },
-          animationEnabled: true,
-          axisX:{
-            labelAngle: 30
-          },
-          
-          axisY :{
-            includeZero:false
-          },
-          
-          data: data  // random generator below
-          
-        });
-
-        chart.render();
-    }
-
     var limit = 100000;    //increase number of dataPoints by increasing this
 
     var y = 0;
